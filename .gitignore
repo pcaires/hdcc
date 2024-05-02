@@ -1,0 +1,19 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.out
+src/parsetab.py
+
+data/MNIST/raw
+data/MNIST/mnist_*
+
+examples/*.c
+examples/Makefile
+
+examples/mnist
+examples/language
+examples/emg
+examples/voicehd
