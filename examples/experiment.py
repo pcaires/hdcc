@@ -10,7 +10,7 @@ from subprocess import Popen, PIPE
 now = '_hdcc_' + datetime.now().strftime("%d_%m_%Y_%H:%M:%S")
 folder = '../results/'
 
-out_file = sys.argv[1]
+out_file = 'private'
 
 dimensions = [64, 128, 512, 1024, 4096, 10240]
 #dimensions = [10240]
