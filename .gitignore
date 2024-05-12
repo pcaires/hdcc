@@ -15,5 +15,5 @@ examples/Makefile
 
 examples/mnist
 examples/language
-examples/emg
+examples/emg*
 examples/voicehd
