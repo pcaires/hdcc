@@ -10,7 +10,7 @@ from torchhd.datasets.isolet import ISOLET
 import sys
 BATCH_SIZE = 1
 DIMENSIONS = int(sys.argv[1])
-device = torch.device("cpu")
+device = torch.device(sys.argv[2])
 NUM_LEVELS = 100
 
 class Model(nn.Module):
@@ -60,4 +60,4 @@ with torch.no_grad():
         predictions = torch.argmax(outputs, dim=-1)
         accuracy.update(predictions.cpu(), labels)
 
-print('voicehd,'+str(DIMENSIONS) +',' + str(time.time()-t)+','+str((accuracy.compute().item())), end='')
+print('VoiceHD,'+str(DIMENSIONS) +',' + str(time.time()-t)+','+str((accuracy.compute().item())), end='')

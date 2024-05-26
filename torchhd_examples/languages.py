@@ -9,7 +9,7 @@ from torchhd.datasets import EuropeanLanguages as Languages
 import sys
 import time
 
-device = torch.device("cpu")
+device = torch.device(sys.argv[2])
 DIMENSIONS = int(sys.argv[1])
 BATCH_SIZE = 1
 MAX_INPUT_SIZE = 128
@@ -88,4 +88,4 @@ with torch.no_grad():
         predictions = torch.argmax(outputs, dim=-1)
         if predictions == labels:
             correct_pred += 1
-print('language recognition,' + str(DIMENSIONS) + ',' + str(time.time() - t) + ',' + str((correct_pred / 21000)), end='')
+print('Language,' + str(DIMENSIONS) + ',' + str(time.time() - t) + ',' + str((correct_pred / 21000)), end='')

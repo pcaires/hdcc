@@ -10,13 +10,13 @@ import sys
 from torchhd import functional
 from torchhd import embeddings
 from torchhd.datasets import EMGHandGestures
-device = torch.device("cpu")
+device = torch.device(sys.argv[3])
 
 DIMENSIONS = int(sys.argv[2])
 NUM_LEVELS = 21
 BATCH_SIZE = 1
 WINDOW = 256
-N_GRAM_SIZE = 4
+N_GRAM_SIZE = 3
 DOWNSAMPLE = 5
 SUBSAMPLES = torch.arange(0, WINDOW, int(WINDOW / DOWNSAMPLE))
 
@@ -84,15 +84,5 @@ with torch.no_grad():
         if predictions == labels[0]:
             suma += 1
 
-n = ''
-if subjects == [0]:
-    n = 'emgp'
-if subjects == [1]:
-    n = 'emgpp'
-if subjects == [2]:
-    n = 'emgppp'
-if subjects == [3]:
-    n = 'emgpppp'
-if subjects == [4]:
-    n = 'emgppppp'
+n = 'EMG ' + str(subjects[0]+1)
 print(n+','+str(DIMENSIONS) +',' + str(time.time()-t)+','+str((suma/len(test_ld))), end = '')
